@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "Vertex.h"
 
 bool Vertex::isNeighbouredTo(const Vertex & node) const
