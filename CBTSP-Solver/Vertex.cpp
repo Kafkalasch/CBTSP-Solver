@@ -1,6 +1,9 @@
 #include "Vertex.h"
+#include <sstream>
 
 namespace CBTSP {
+
+
 	bool Vertex::isNeighbouredTo(const Vertex & node) const
 	{
 		return neighbours.find(&node) != neighbours.end();
@@ -29,6 +32,17 @@ namespace CBTSP {
 		auto it = neighbours.find(&neighbour);
 		if (it != neighbours.end())
 			neighbours.erase(it);
+	}
+	auto Vertex::print() const -> std::string
+	{
+		std::stringstream out;
+		out << this->getId() << " -> " << "( ";
+		for (const auto& neighbour : *this)
+		{
+			out << neighbour.getId() << " ";
+		}
+		out << ")";
+		return out.str();
 	}
 	/*std::ostream & operator<<(std::ostream & os, const Vertex & vertex)
 	{

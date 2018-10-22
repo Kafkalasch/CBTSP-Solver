@@ -1,5 +1,7 @@
 #include "Vertex.h"
 #include "Graph.h"
+#include <iostream>
+#include <sstream>
 
 namespace CBTSP {
 	void Graph::addEdge(const Vertex & v1, const Vertex & v2, double weight)
@@ -30,6 +32,16 @@ namespace CBTSP {
 		{
 			vertices.insert(std::make_pair(v.getId(), v));
 		}
+	}
+
+	auto Graph::print() const -> std::string
+	{
+		std::stringstream out;
+		for (const auto& vertex : *this)
+		{
+			out << vertex.print() << std::endl;
+		}
+		return out.str();
 	}
 	/*std::ostream & operator<<(std::ostream & os, const Graph & graph)
 	{
