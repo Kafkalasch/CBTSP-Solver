@@ -151,8 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ANeighborhoodGenerator.h" />
+    <ClInclude Include="ANeighborhoodGeneratorFactory.h" />
+    <ClInclude Include="ASolution.h" />
+    <ClInclude Include="AStepFunction.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="GraphImporter.h" />
+    <ClInclude Include="NextImprovementStepFunction.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <ItemGroup>
