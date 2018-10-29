@@ -3,7 +3,6 @@
 #include <unordered_set>
 //#include "IteratorCollection.h"
 
-namespace CBTSP {
 
 	class Graph
 	{
@@ -15,7 +14,8 @@ namespace CBTSP {
 
 		void addEdge(const Vertex&, const Vertex&, double weight);
 		auto find(int id) const ->const Vertex*;
-		
+		auto size()const -> size_t { return vertices.size(); }
+
 		auto print() const->std::string;
 
 		//friend std::ostream& operator<<(std::ostream& os, const Graph&);
@@ -24,4 +24,4 @@ namespace CBTSP {
 
 		void createIfNotExistent(const Vertex& v);
 	};
-}
+

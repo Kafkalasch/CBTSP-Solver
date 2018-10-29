@@ -157,17 +157,26 @@
     <ClInclude Include="ANeighborhoodGeneratorFactory.h" />
     <ClInclude Include="ASolution.h" />
     <ClInclude Include="AStepFunction.h" />
+    <ClInclude Include="ConstructionHeuristic.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="GraphImporter.h" />
+    <ClInclude Include="GreedyConstructionHeuristic.h" />
+    <ClInclude Include="IteratorCollection.h" />
     <ClInclude Include="NextImprovementStepFunction.h" />
+    <ClInclude Include="Path.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Solution.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CBTSP-Solver.cpp" />
+    <ClCompile Include="ConstructionHeuristic.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="GraphImporter.cpp" />
+    <ClCompile Include="GreedyConstructionHeuristic.cpp" />
+    <ClCompile Include="Path.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Solution.cpp" />
     <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
