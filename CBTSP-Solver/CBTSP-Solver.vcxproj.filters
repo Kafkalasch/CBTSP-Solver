@@ -25,9 +25,22 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
+<Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ASolution.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IteratorCollection.h">
+      
+    <ClInclude Include="ANeighborhoodGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AStepFunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NextImprovementStepFunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ANeighborhoodGeneratorFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

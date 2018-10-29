@@ -1,7 +1,6 @@
 #pragma once
 #include <unordered_map>
 #include <string>
-#include "constIteratorWrapper.h"
 #include "IteratorCollection.h"
 
 namespace CBTSP {
