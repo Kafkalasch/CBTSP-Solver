@@ -1,0 +1,94 @@
+\documentclass[10pt,oneside,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[ngerman]{babel}
+
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\pot}[1]{\mathfrak{P}(#1)} 
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newtheorem{Def}{Definition}
+\newtheorem{Satz}[Def]{Satz}
+\newtheorem{Bem}[Def]{Bemerkung}
+\newtheorem{Bsp}[Def]{Beispiel}
+\newtheorem{Fol}[Def]{Folgerung}
+\newtheorem{Lem}[Def]{Lemma}
+\newtheorem{Prop}[Def]{Proposition}
+
+
+
+\begin{document}
+	\begin{center}
+		\textbf{CBTSP - Projekt}
+		
+		\textit{Michael Höfler, Claudius Röhl}
+	\end{center}
+
+\begin{Def}  
+	Sei $K$ eine Menge, $E\subseteq K\times K$ eine Relation über $K$ und $C:E\to\mathbb{R}$.  Wir nennen das Tupel $G:=(K,E,C)$ einen \textbf{Graphen}, die Elemente aus $K$ \textbf{Knoten}, die aus $E$ \textbf{Kanten} und $C$ die \textbf{Kostenfunktion} von $G$. \\
+	
+	\noindent Wenn $\forall (a,b)\in E: (b,a)\in E$ gilt ($E$ also symmetrisch ist), nennen wir $G$  einen \textbf{ungerichteten Graphen}. In diesem Fall können die Kanten auch als Teilmenge $\tilde{E}$ der Potenzmenge von $K$ geschrieben werden, indem wir 
+	$$\tilde{E}:=\{\{a,b\}\in \pot{K}\mid a,b\in K: (a,b)\in E\}$$
+	setzen und $(K,E)$ mit $(K,\tilde{E})$ identifizieren.
+\end{Def}
+
+\begin{Def} 
+	Sei $G=(K,E,C)$ ein Graph und $K'\subseteq K$, $E'\subseteq (K'\times K')\cap E$ sowie $C|_{G'}=C'$. Dann heiße $G':=(K',E',C')$ ein \textbf{Teilgraph} von $G$ und wir schreiben $G'\subseteq G$.
+\end{Def}
+
+\begin{Def} 
+	Sei $G=(K,E,C)$ ein ungerichteter Graph. Eine Folge 
+	$$H=(h_1,h_2...,h_{|G|}), h_i \in K$$
+	heiße \textbf{hamiltonscher Zyklus}, falls
+	$$\{ h_i \mid i\in\nat_{1,|G|}\} = G$$ und
+	für alle $1\leq i<j\leq |G|$ gilt
+	$$ h_i\neq k_j \wedge \{h_i,h_j\}\in E.$$
+	Wir nennen
+	$$C_{CBTSP}(H):=\left|\sum_{i = 1}^{|G|-1}C(\{h_i,h_{i+1}\})\right|\in \mathbb{R}$$
+	die CBTSP-Kosten des Zyklus H.
+	Wir setzen 
+	$$E_H := \{h\in E\mid \exists n\in \nat: h=(h_n,h_{n+1})\}.$$
+\end{Def}
+
+\begin{Satz}
+	Seien $G=(K,E,C)$ ein endlicher ungerichteter Graph und $G'\subsetneq G$ ein echter Teilgraph dergestalt, dass
+	$$C(x) =
+	\begin{cases}
+		C'(e) & \text{falls } e\in E',\\
+		2M+1 & sonst
+	\end{cases}$$
+	mit 
+	$$M:= \sum_{e'\in E'}|C'(e)|.$$
+	Seien $H$ und $H'$ hamiltonsche Zyklen von $G$ bzw. $G'$, wobei $H$ kein hamiltonscher Zyklus von $G'$ sei.
+	Dann gilt:
+	$$C_{CBTSP}(H') < C_{CBTSP}(H).$$
+	\begin{proof}
+		Sei alles wie oben. Da $H=(h_1,...,h_{|G|})$ kein hamiltonscher Zyklus von $G'$ ist, gibt es ein $s\in \nat$ so, dass $\hat{h}:=(h_s,h_{s+1})\notin E'$. Daher gilt:
+		$$C(\hat{h}) = 2M+1.$$
+		Weiters haben wir
+		\begin{eqnarray}
+		C_{CBTSP}(H')&=&\left|\sum_{h'\in {E'}_{H'}}C(h')\right| \\
+		&\leq&\sum_{h'\in {E'}_{H'}}|C(h')|\\
+		&\leq& \sum_{h'\in E'}|C(h)| \\
+		&=& M\\
+		&<& M + 1\\
+		&\leq& \left|\underbrace{\left(\sum_{h\in {E_H\backslash\{\hat{h}\}}}C(h)\right) + M}_{\geq 0} + M +1\right|\\
+		&=& \left|\sum_{h\in {E}_{H}}C(h)\right|\\
+		&=& C_{CBTSP}(H).
+		\end{eqnarray}
+	\end{proof}
+\end{Satz}
+
+
+%\begin{Def} 
+%	Sei $G=(K,E)$ ein Graph. $G$ heiße zusammenhängend, wenn es für je zwei Knoten $a,b\in K$ einen Weg von $a$ nach $b$ gibt.
+%	%Die Menge aller zusammenhängenden Teilgraphen von $G$ wird durch $\mathcal{Z}(G)$ bezeichnet.
+%\end{Def}
+
+
+
+
+\end{document}
