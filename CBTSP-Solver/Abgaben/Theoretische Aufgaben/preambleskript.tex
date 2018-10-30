@@ -1,0 +1,158 @@
+\documentclass[10pt,twoside,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[ngerman]{babel}
+\usepackage{marginnote}
+\usepackage{enumerate}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata,positioning,intersections,calc,through,backgrounds,patterns}
+
+
+
+%Einstellungen der Seitenr�nder
+\usepackage[left=2.5cm,right=3cm,top=2cm,bottom=3cm,includeheadfoot]{geometry} %left left=2.5cm,right=3cm,top=2cm,bottom=3cm,includeheadfoot]{geometry
+\usepackage{setspace}
+\setstretch{0,97}%{1,15}
+\usepackage{makeidx}
+\makeindex
+
+
+
+%\renewcommand{\theequation}{\arabic{section}.\arabic{equation}} 
+%\renewcommand{\thesection}{\arabic{section}\setcounter{equation}{0}} 
+%\usepackage{../../demo2}
+% selbstdefinierte Makros, ... aus demo2.sty
+\newcommand{\iindex}[1]{\index{#1}#1}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\re}{\text{Re}\hspace{0.1 cm}}
+\newcommand{\im}{\text{Im}\hspace{0.1 cm}}
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1{.}}} 
+\newcommand{\Ord}{\mathfrak{Ord}}
+\newcommand{\integral}{\int\limits}
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\reell}{\mathbb{R}}
+\newcommand{\ganz}{\mathbb{Z}}
+\newcommand{\komplex}{\mathbb{C}}
+\newcommand{\rat}{\mathbb{Q}}
+\newcommand{\durchschnitt}{\mathop{\bigcap}\limits}
+%\newcommand{\Vereinigung}{\mathop{\bigcup}\limits}
+\newcommand{\reellzwei}{\reell^{\,2}}
+\newcommand{\gleichdrueber}[1]{\stackrel{(#1)}{=}}
+\newcommand{\kgleichdrueber}[1]{\stackrel{(#1)}{\leq}}
+\newcommand{\bem}{\textit{Bemerkung: }}
+%\newcommand{\Def}{\subsubsection*{Definition}}
+%\newcommand{\Bsp}{\subsubsection*{Beispiel}}
+%\newcommand{\Satz}{\subsubsection*{Satz}}
+%\newcommand{\Beweis}{\subsubsection*{Beweis}}
+\newcommand{\matrixeinfach}[1]{\begin{pmatrix}
+#1_1 \\ #1_2 \\ \vdots \\ #1_n \end{pmatrix}}
+\newcommand{\mxdots}[2]{\begin{pmatrix}
+#1 \\ \dots \\ #2 \end{pmatrix}}
+\newcommand{\Lemma}{\subsubsection{Lemma}}
+\newcommand{\Korollar}{\subsubsection{Korollar}}
+\newcommand{\Theorem}{\subsubsection{Theorem}}
+\newcommand{\ringschluss}[1]{\begin{enumerate}[(i) $\Rightarrow$  
+\ifnum \value{enumi}=#1 
+\setcounter{enumi}{0}
+\fi \addtocounter{enumi}{1} (i): \addtocounter{enumi}{-1}]}
+% \begin{enumerate}[(i) $\Rightarrow$  \ifnum \value{enumii}=3 \setcounter{enumii}{0} \fi \addtocounter{enumii}{1} (i): \addtocounter{enumii}{-1}] \end{enumerate} 
+\newcommand{\ringschlusszwei}[1]{\begin{enumerate}[(i) $\Rightarrow$  \ifnum \value{enumii}=#1 \setcounter{enumii}{0} \fi \addtocounter{enumii}{1} (i): \addtocounter{enumii}{-1}]}
+\newcommand{\ringschlussanders}[1]{\begin{enumerate}[(i) $\Leftarrow$  
+\ifnum \value{enumi}=#1 
+\setcounter{enumi}{0}
+\fi \addtocounter{enumi}{1} (i): \addtocounter{enumi}{-1}]}
+\newcommand{\summe}{\sum\limits}
+\newcommand{\Rightarrows}[1]{\stackrel{#1}{\Rightarrow}}
+\newcommand{\natBasis}{e_1^{(q)}, \dots , e_q^{(q)}}
+\newcommand{\reelln}{\reell^{n}}
+\newcommand{\fracpartial}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\limes}[1]{\lim\limits_{#1}}
+\newcommand{\Limes}[2]{\lim\limits_{#1 \rightarrow #2}}
+\newcommand{\limesn}{\limes{n \rightarrow \infty}}
+\newcommand{\fracd}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\nullover}[1]{\mathop{#1}\limits^\circ}
+\newcommand{\reellN}{\reell^{\;N}}
+\newcommand{\tillinfty}[1]{_{#1}^\infty}
+\newcommand{\till}[2]{_{#1}^{#2}}
+\newcommand{\bdots}[2]{#1_1 , \dots , #1_{#2}}
+\newcommand{\pot}[1]{\mathcal{P}(#1)} 
+\newcommand{\zfc}{\mathcal{ZFC} }
+\newcommand{\zf}{\mathcal{ZF} }
+\newcommand{\AC}{\mathcal{AC} }
+\newcommand{\Kard}{\mathfrak{Kard}}
+\newcommand{\kardprod}{\scalebox{0.7}{$\mathfrak{K}$}\hspace{-1em}\prod}
+\DeclareMathOperator{\Grad}{Grad}
+\DeclareMathOperator{\ann}{Ann}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Bild}{Bild}
+\DeclareMathOperator{\zereq}{\, \stackrel{\hspace{-0.01 cm}\scalebox{0.5}{$\mathcal{Z}$}}{\sim}\, }
+\newcounter{serie}
+\newcommand{\serie}{\addtocounter{serie}{1}Serie \arabic{serie}}
+\newcommand{\card}{\text{card }}
+\newcommand{\vektor}[2]{\left(\begin{array}
+{#1} #2\end{array}\right)}
+\newcommand{\produkt}{\prod\limits}
+\newcommand{\ninnat}{n \in \nat}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\dom}[1]{\text{dom}\left(#1\right)}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\diver}{div}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\spur}{spur}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\bild}{bild}
+\DeclareMathOperator{\kernn}{kern} 
+\DeclareMathOperator{\cokern}{cokern}
+\DeclareMathOperator{\cobild}{cobild}
+\DeclareMathOperator{\rang}{rang}
+\DeclareMathOperator{\esssup}{ess \; sup}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\indexprod}{\makebox[12 pt][c]{$\overset{\hspace{0pt}\scalebox{1.4}{.}}{\times}$}}
+\newcommand{\skalar}[1]{\left\langle #1 \right\rangle}
+\newenvironment{aebeweis}[1]
+{
+%\newcounter{aezaehler}
+\setcounter{aezaehler}{1}
+\begin{list}{(\roman{aezaehler}) $\Rightarrow$  \ifnum \value{aezaehler}=#1 \setcounter{aezaehler}{0} \fi \addtocounter{aezaehler}{1} (\roman{aezaehler}) $\colon$}{\setlength{\labelwidth}{1em}}
+}{\end{list}}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\si}{Si}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\imteil}{Im}
+\DeclareMathOperator{\reteil}{Re}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\eps}{eps}
+\newcommand{\Cov}{\boldsymbol{\operatorname{Cov}}}
+\newcommand{\Var}{\boldsymbol{\operatorname{Var}}}
+\newcommand{\Pmass}{\boldsymbol{\operatorname{P}}}
+\newcommand{\E}{\boldsymbol{\operatorname{E}}}
+\newcommand{\source}[1]{% %für schöne Quellenangabe bei Zitaten
+	\nobreak\parbox[t]{\linewidth}{\raggedleft #1}% Placing a quote source
+}%
+\newcommand{\explain}[2]{\underset{\mathclap{\overset{\uparrow}{#2}}}{#1}}
+\newcommand{\explainup}[2]{\overset{\mathclap{\underset{\downarrow}{#2}}}{#1}}
+\newcommand{\leer}{\emptyset}
+\newtheoremstyle{dotless}{}{}{}{}{\bfseries}{}{5 pt}{}
+\theoremstyle{dotless}
+
+\newtheorem{Def}{Definition}[section]
+\newtheorem{Satz}[Def]{Satz}
+\newtheorem{Bem}[Def]{Bemerkung}
+\newtheorem{Bsp}[Def]{Beispiel}
+\newtheorem{Fol}[Def]{Folgerung}
+\newtheorem{Lem}[Def]{Lemma}
+\newtheorem{Prop}[Def]{Proposition}
+
+%
+\usepackage[pdftex, plainpages=false,bookmarks,bookmarksopen,colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}

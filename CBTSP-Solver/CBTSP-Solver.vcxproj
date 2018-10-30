@@ -159,6 +159,7 @@
     <ClInclude Include="AStepFunction.h" />
     <ClInclude Include="ConstructionHeuristic.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="GraphCompleter.h" />
     <ClInclude Include="GraphImporter.h" />
     <ClInclude Include="GreedyConstructionHeuristic.h" />
     <ClInclude Include="IteratorCollection.h" />
@@ -172,6 +173,7 @@
     <ClCompile Include="CBTSP-Solver.cpp" />
     <ClCompile Include="ConstructionHeuristic.cpp" />
     <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="GraphCompleter.cpp" />
     <ClCompile Include="GraphImporter.cpp" />
     <ClCompile Include="GreedyConstructionHeuristic.cpp" />
     <ClCompile Include="Path.cpp" />

@@ -17,8 +17,6 @@
 		auto size()const -> size_t { return vertices.size(); }
 
 		auto print() const->std::string;
-
-		//friend std::ostream& operator<<(std::ostream& os, const Graph&);
 	private:
 		std::unordered_map<int, Vertex> vertices; //id to vertex
 

@@ -22,7 +22,6 @@ void Vertex::addNeighbour(const Vertex & neighbour, double weight)
 {
 	neighbours.insert(std::make_pair(&neighbour, weight));
 	dist2Neighbour.insert(std::make_pair(weight, &neighbour));
-
 }
 
 void Vertex::eraseNeighbour(const Vertex & neighbour)

@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "c:/Users/Claudius/Documents/Wichtige_Dokumente/Studium/Wien/Heuristic Optimization/Programme/CBTSP-Solver/CBTSP-Solve",
+                "c:/Program Files (x86)/Windows Kits/10/Include/10.0.17134.0",
+                "c:/Program Files (x86)/Windows Kits/10/Include/10.0.17134.0/ucrt"
+         ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "8.1",
+            "compilerPath": "C:/Program Files (x86)/Programmierung/Microsoft Visual Studio 14.0/VC/bin/cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}
