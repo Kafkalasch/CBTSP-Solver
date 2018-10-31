@@ -7,7 +7,7 @@
 class ConstructionHeuristic
 {
 public:
-	ConstructionHeuristic(const Graph& graph, double alpha) : graph(graph), alpha(alpha) { assert(alpha <= 1 && 0<=alpha); };
+	ConstructionHeuristic(const Graph& graph, double alpha) : graph(graph), alpha(alpha), path(graph) { assert(alpha <= 1 && 0<=alpha); };
 
 	auto operator()()->Path;
 
