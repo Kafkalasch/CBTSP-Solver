@@ -6,6 +6,8 @@
 void GraphCompleter::operator()()
 {
 	auto bigM = calcBigM();
+	graph.setBigM(bigM);
+
 	std::cout << "Big M is: " << bigM << std::endl;
 
 	for (const auto& vertex : graph)

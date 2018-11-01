@@ -8,7 +8,7 @@ Path::~Path()
 
 bool Path::isHamiltonian()const
 {
-	return false;
+	return isCyclic() && !multiVisit;
 }
 
 bool Path::isCyclic()const
@@ -37,14 +37,18 @@ auto Path::print() const -> std::string
 	std::stringstream out;
 
 	int cnt = 1;
-	for (const auto& vertex : path)
+	for (auto vertexIt = path.begin(); vertexIt != path.end(); ++vertexIt,++cnt)
 	{
-		out << vertex->getId();
-		if (cnt != path.size())
-			out << " - > ";
+		out << (**vertexIt).getId();
+		
+		if (vertexIt != --path.end())
+		{
+			auto isVirtualEdge = (**vertexIt).getDistanceTo(**(++vertexIt)) == graph.getBigM();
+			--vertexIt;
+			out << (isVirtualEdge? " *> " : " -> ") ;
+		}
 		if (cnt % 15 == 0)
 			out << std::endl;
-		++cnt;
 	}
 	return out.str();
 }

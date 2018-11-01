@@ -5,20 +5,19 @@
 
 void Graph::addEdge(const Vertex & v1, const Vertex & v2, double weight)
 {
-	if (v1.isNeighbouredTo(v2)) //we do not allow multigraphs
-		return;
-	if (&v1 == &v2) //we do not allow self-referencing-edges
-		return; 
-
 	createIfNotExistent(v1);
 	createIfNotExistent(v2);
 
-	auto it1 = vertices.find(v1.getId());
-	auto it2 = vertices.find(v2.getId());
+	auto& vertex1 = vertices.find(v1.getId())->second;
+	auto& vertex2 = vertices.find(v2.getId())->second;
 
+	if (vertex1.isNeighbouredTo(vertex2)) //we do not allow multigraphs
+		return;
+	if (&vertex1 == &vertex2) //we do not allow self-referencing-edges
+		return; 
 
-	it1->second.addNeighbour(it2->second, weight);
-	it2->second.addNeighbour(it1->second, weight);
+	vertex1.addNeighbour(vertex2, weight);
+	vertex2.addNeighbour(vertex1, weight);
 }
 
 auto Graph::find(int id) const -> const Vertex *
