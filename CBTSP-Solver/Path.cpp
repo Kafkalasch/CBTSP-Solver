@@ -43,8 +43,8 @@ auto Path::print() const -> std::string
 		
 		if (vertexIt != --path.end())
 		{
-			auto isVirtualEdge = (**vertexIt).getDistanceTo(**(++vertexIt)) == graph.getBigM();
-			--vertexIt;
+			auto& nextVertex = **(vertexIt +1);
+			auto isVirtualEdge = (**vertexIt).getDistanceTo(nextVertex) == graph.getBigM();
 			out << (isVirtualEdge? " *> " : " -> ") ;
 		}
 		if (cnt % 15 == 0)
